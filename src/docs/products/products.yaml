@@ -1,0 +1,176 @@
+openapi: 3.0.0
+info:
+  title: PS5 STORE PRODUCTS
+  description: PS5 STORE DOCS PRODUCTS MODULE 
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/products:
+    get:
+      summary: Obtener todos los productos
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Los productos fueron devueltos de forma exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        '500':
+          description: Error del servidor. Usualmente generando la query o falla la conexión a la DB
+    post:
+      summary: Crear un nuevo producto
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '201':
+          description: Producto creado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /api/products/{id}:
+    get:
+      summary: Obtener un producto por ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del producto
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Producto no encontrado
+    put:
+      summary: Actualizar un producto por ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del producto
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Producto actualizado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Producto no encontrado
+    delete:
+      summary: Eliminar un producto por ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del producto
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto eliminado con éxito
+        '404':
+          description: Producto no encontrado
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ID del producto
+        title:
+          type: string
+          description: Título del producto
+        description:
+          type: string
+          description: Descripción del producto
+        price:
+          type: number
+          description: Precio del producto
+        thumbnail:
+          type: string
+          description: URL de la imagen del producto
+        code:
+          type: string
+          description: Código único del producto
+        stock:
+          type: integer
+          description: Cantidad en stock del producto
+        category:
+          type: string
+          description: Categoría del producto
+        status:
+          type: boolean
+          description: Estado del producto
+      required:
+        - title
+        - description
+        - price
+        - thumbnail
+        - code
+        - stock
+        - category
+    ProductInput:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Título del producto
+        description:
+          type: string
+          description: Descripción del producto
+        price:
+          type: number
+          description: Precio del producto
+        thumbnail:
+          type: string
+          description: URL de la imagen del producto
+        code:
+          type: string
+          description: Código único del producto
+        stock:
+          type: integer
+          description: Cantidad en stock del producto
+        category:
+          type: string
+          description: Categoría del producto
+      required:
+        - title
+        - description
+        - price
+        - thumbnail
+        - code
+        - stock
+        - category

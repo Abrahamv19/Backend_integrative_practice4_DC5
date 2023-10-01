@@ -1,0 +1,345 @@
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+}
+
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN */
+
+.centered-button {
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* **************** */
+
+.desktopNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.desktopNavLeft {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 50px 0;
+}
+.desktopNavLinkLogo {
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+.desktopNavLink {
+  font-size: medium;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 10px;
+}
+.desktopNavLog {
+  font-size: medium;
+  font-family: 'Montserrat', sans-serif;
+}
+.desktopNavIcon {
+  padding: 0.5rem;
+}
+.desktopNavRight {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para los enlaces desplegables */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+.dropdown a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Estilos para los enlaces dentro del desplegable */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+  font-weight: normal;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/*BODY HOME*/
+.desktopshopheader1-vector {
+  top: 10px;
+  left: 63px;
+  width: 6px;
+  height: 10px;
+  position: absolute;
+}
+.desktopshopheader1-li3 {
+  width: 46.00060272216797px;
+  height: 46.000301361083984px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.homeBodyBanner {
+  top: 138px;
+  left: 50%;
+  width: 1292px;
+  height: 622px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-color: rgba(5, 4, 4, 1);
+  transform: translateX(-50%);
+}
+.desktopshopheader1-colmd6 {
+  gap: 30px;
+  top: 131px;
+  left: 94px;
+  width: 572px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.desktopshopheader1-text10 {
+  color: rgba(217, 72, 122, 1);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+.desktopshopheader1-text12 {
+  color: rgba(253, 253, 253, 1);
+  height: auto;
+  font-size: 52.19999694824219px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 66px;
+  font-stretch: normal;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.desktopshopheader1-text17 {
+  color: var(--dl-color-default-secondtextcolor);
+  height: auto;
+  text-align: left;
+  line-height: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+.desktopshopheader1-cta {
+  gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  background-color: rgba(5, 4, 4, 1);
+}
+.desktopshopheader1-buttonbtnprimarycolorbtnlg {
+  gap: 10px;
+  display: flex;
+  padding: 15px 40px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 5px;
+  flex-direction: column;
+  background-color: rgba(217, 72, 122, 1);
+}
+.desktopshopheader1-text22 {
+  color: var(--dl-color-default-lighttextcolor);
+  height: auto;
+  text-align: center;
+  line-height: 32px;
+  font-family: 'Montserrat', sans-serif;
+}
+.desktopshopheader1-vector14 {
+  top: -14px;
+  left: 315px;
+  width: 373px;
+  height: 806px;
+  position: absolute;
+}
+.desktopshopheader1-image64 {
+  top: -100px;
+  left: 666px;
+  width: 315px;
+  height: 393px;
+  opacity: 0.7;
+  position: absolute;
+}
+.desktopshopheader1-image61 {
+  top: 229px;
+  left: 815px;
+  width: 315px;
+  height: 393px;
+  position: absolute;
+}
+.desktopshopheader1-image62 {
+  top: 73px;
+  left: 624px;
+  width: 382px;
+  height: 477px;
+  position: absolute;
+}
+.desktopshopheader1-image60 {
+  top: 0px;
+  left: 1042px;
+  width: 250px;
+  height: 312px;
+  position: absolute;
+}
+.desktopshopheader1-image63 {
+  top: 375px;
+  left: 1115px;
+  width: 177px;
+  height: 247px;
+  position: absolute;
+}
+
+/* STYLE HOME VIEJO*/
+/* .dashboard-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-container img {
+  width: 70px;
+  max-height: max-content;
+  margin-bottom: 10px;
+}
+
+.dashboard-container .welcome-message,
+.dashboard-container .profile-title,
+.dashboard-container .guest-message {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.dashboard-container .profile-details {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.dashboard-container .profile-details p {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.dashboard-container .sign-in-link,
+.dashboard-container .register-link {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.dashboard-container .sign-in-link,
+.dashboard-container .register-link {
+  background-color: #4caf50;
+  margin-right: 10px;
+}
+
+.dashboard-container .sign-in-link:hover,
+.dashboard-container .register-link:hover {
+  background-color: #45a049;
+}
+
+.dashboard-container .register-link {
+  background-color: #4caf50;
+}
+
+.dashboard-container .register-link:hover {
+  background-color: #45a049;
+} */
+
+/* Estilo para el contenedor principal */
+/* .homeContainer {
+  text-align: center;
+}
+
+#carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.active {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.background-image {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  object-fit: cover;
+  z-index: 1;
+}
+ */

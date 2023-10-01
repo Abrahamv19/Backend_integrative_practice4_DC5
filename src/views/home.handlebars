@@ -1,0 +1,69 @@
+<nav>
+  <div class='desktopNavbar'>
+
+    <div class='desktopNavRight'>
+      {{#if session}}
+      <a href='/api/sessions/current' class='cartInfo' id='{{session.cartID}}'><img src='/images/login.png'
+          alt='Icono login' /><span class='desktopNavIcon'>{{session.firstName}}</span></a>
+      <a id='logout-btn' type='submit' class='desktopNavIcon'><i class='material-icons'>exit_to_app</i>Salir</a>
+      {{else}}
+      <div class='desktopNavLog'>
+        <a href='/?login=true'><img src='/images/login.png' alt='Icono login' /><span
+            class='desktopNavLink'>Login</span></a>
+      </div>
+      <div class='desktopNavLog'>
+        <a href='/?register=true' class='desktopNavLink'>Registro</a>
+      </div>
+      {{/if}}
+      <div class='search-icon' id='search-icon'>
+        <img class='desktopNavIcon material-icons' src='/images/lupa.png' alt='Lupa' id='search-icon-img' />
+      </div>
+      <div class='search-box' id='search-box'>
+        <form id='search-form'>
+          <input type='text' id='search-input' name='query' placeholder='Buscar...' />
+          <button type='submit'>Buscar</button>
+        </form>
+      </div>
+      <div>
+        <a onclick="location.href='/carts/{{session.cartID}}'"><img class='desktopNavIcon' src='/images/carrito.png'
+            alt='carrito' /></a>
+      </div>
+      <div>
+        <img class='desktopNavIcon' src='/images/corazon.png' alt='icnsettingsicnxs8081' />
+      </div>
+    </div>
+    {{#if isAdmin}}
+    <div class='admin-button'>
+      <button class='button is-info' onclick="location.href='http://localhost:8080/api/sessions/adminControl'">
+        <span class='icon'><i class='material-icons'>admin_panel_settings</i></span>
+        <span>Panel de Administrador</span>
+      </button>
+    </div>
+    {{/if}}
+
+    <div class=''>
+      <button onclick="location.href='/chat'">
+        <i class='material-icons'>chat</i></button>
+    </div>
+  </div>
+
+</nav>
+      <div class='dashboard-container'>
+         <h1 class='home-title'>WELCOME TO PS5 STORE</h1>
+      </div>
+      <br>
+      <div class='dashboard-container'>
+
+        
+       <img src="https://res.cloudinary.com/abrahama19/image/upload/v1688144787/playstation-store-1000x600_chbab7.jpg" width="500" height="300"/>
+  
+    </div>
+
+   
+
+<section>
+
+</section>
+
+<script src='/js/profile.js'></script>
+<script src='/js/home.js'></script>

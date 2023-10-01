@@ -1,0 +1,99 @@
+<nav>
+  <div class='desktopNavbar'>
+    <span class='desktopNavLinkLogo'>PS5 Store</span>
+    <div class='desktopNavLeft'>
+    </div>
+
+
+
+    <div class='desktopNavRight'>
+      {{#if sessionUser}}
+        <a href='/api/sessions/current' class='cartInfo' id='{{sessionUser.cartID}}'><img src='/images/login.png' alt='Icono login' /><span class='desktopNavIcon'>{{sessionUser.firstName}}</span></a>
+        <a id='logout-btn' type='submit' class='desktopNavIcon'><i class='material-icons'>exit_to_app</i>Salir</a>
+      {{else}}
+        <div class='desktopNavLog'>
+          <a href='/?login=true'><img src='/images/login.png' alt='Icono login' /><span class='desktopNavLink'>Login</span></a>
+        </div>
+        <div class='desktopNavLog'>
+          <a href='/?register=true' class='desktopNavLink'>Registro</a>
+        </div>
+      {{/if}}
+   
+ 
+      <div>
+        <a onclick="location.href='/carts/{{sessionUser.cartID}}'"><img class='desktopNavIcon' src='/images/carrito.png' alt='carrito' /></a>
+      </div>
+   
+    </div>
+    {{#if isAdmin}}
+      <div class='admin-button'>
+        <button class='button is-info' onclick="location.href='http://localhost:8080/api/sessions/adminControl'">
+          <span class='icon'><i class='material-icons'>admin_panel_settings</i></span>
+          <span>Panel de Administrador</span>
+        </button>
+      </div>
+    {{/if}}
+  </div>
+</nav>
+<div class="centered-div">
+<button class='averageButton button is-primary mt-3' onclick="location.href='/products'">Seguir comprando</button>
+</div>
+<div class='dashboard-profile'>
+  <h2 class='profile-title'>Mi perfil</h2>
+  <div class='profile-details'>
+    <div class='profileContainer'>
+      <div class='profileImageUploader'>
+        <img id='profileImage' src='/profiles/{{user.profileImage}}' alt='Imagen de perfil predeterminada' />
+        <form id='profileForm' action='/api/users/{{user._id}}/profile-image' method='post' enctype='multipart/form-data'>
+          <input type='hidden' name='fileType' value='profile' />
+          <input type='file' name='profiles' />
+          <button type='submit'>Subir Imagen de Perfil</button>
+        </form>
+      </div>
+      <div>
+        <p>Email: {{sessionUser.email}}</p>
+        <p>Nombre completo: {{sessionUser.firstName}} {{sessionUser.lastName}}</p>
+        <p>Rol: {{sessionUser.role}}</p>
+        <p>Edad: {{sessionUser.age}}</p>
+      </div>
+    </div>
+  </div>
+  <h1>Carga de Documentos</h1>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Status</th>
+      <th>Subido</th>
+      <th>Tipo de documento</th>
+    </tr>
+    {{#each user.documents}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{status}}</td>
+        <td>{{statusVerified}}</td>
+        <td>{{documentType}}</td>
+      </tr>
+    {{/each}}
+  </table>
+  <form id='documentsForm' action='/api/users/{{user._id}}/documents' method='POST' enctype='multipart/form-data'>
+    <input type='hidden' name='fileType' value='document' />
+    <table>
+      <tr>
+        <th>Tipo de documento</th>
+        <th></th>
+      </tr>
+      <tr class='data'>
+        <td>
+          <select name='documentType'>
+            <option value='identificación'>Identificación</option>
+            <option value='comprobanteDomicilio'>Comprobante de Domicilio</option>
+            <option value='comprobanteEstadoCuenta'>Comprobante de Estado de Cuenta</option>
+          </select>
+        </td>
+        <td><input type='file' name='documents' accept='.pdf, .jpg, .png' /></td>
+      </tr>
+    </table>
+    <input type='submit' value='Cargar Documentos' />
+  </form>
+</div>
+

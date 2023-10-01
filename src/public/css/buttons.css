@@ -1,0 +1,55 @@
+.chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatButton button {
+  background-color: #ff6600;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.chatButton:hover {
+  background-color: #ff4500;
+}
+
+.averageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff3860;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  margin: 1rem;
+}
+.averageButton:hover {
+  background-color: darkred;
+}
+
+/* Estilos para el icono de lupa */
+.search-icon {
+  cursor: pointer;
+}
+
+/* Estilos para la caja de búsqueda */
+.search-box {
+  display: none;
+}

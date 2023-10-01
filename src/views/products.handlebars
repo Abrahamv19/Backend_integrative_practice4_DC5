@@ -1,0 +1,110 @@
+
+<nav>
+  <div class='desktopNavbar'>
+    <div>
+       {{!-- <a onclick="location.href='/products'"><img src='https://res.cloudinary.com/abrahama19/image/upload/v1691861389/logoPS5_ryhtjh.jpg' alt='logo' width='200px' style='margin-left: 1.4rem;' /></a> --}}
+         <span class='desktopNavLinkLogo'>PS5 Store</span>
+    </div>
+  
+   
+    <div class='desktopNavRight'>
+      {{#if session}}
+        
+        <a href='/api/sessions/current' class='cartInfo' id='{{session.cartID}}'><img src='/images/login.png' alt='Icono login' /><span class='desktopNavIcon'>{{session.firstName}}</span></a>
+        <a id='logout-btn' type='submit' class='desktopNavIcon'><i class='material-icons'>exit_to_app</i>Salir</a>
+      {{else}}
+        <div class='desktopNavLog'>
+          <a href='/?login=true'><img src='/images/login.png' alt='Icono login' /><span class='desktopNavLink'>Login</span></a>
+        </div>
+        <div class='desktopNavLog'>
+          <a href='/?register=true' class='desktopNavLink'>Registro</a>
+        </div>
+      {{/if}}
+    
+  
+      <div>
+        <a onclick="location.href='/carts/{{session.cartID}}'"><img class='desktopNavIcon' src='/images/carrito.png' alt='carrito' /></a>
+      </div>
+      <div>
+        
+      </div>
+    </div>
+    {{#if isAdmin}}
+      <div class='admin-button'>
+        <button class='button is-info' onclick="location.href='http://localhost:8080/api/sessions/adminControl'">
+          <span class='icon'><i class='material-icons'>admin_panel_settings</i></span>
+          <span>Panel de Administrador</span>
+        </button>
+      </div>
+    {{/if}}
+  </div>
+</nav>
+<section>
+  <div style='display: flex; justify-content: space-between; padding: 30px'>
+    <div>
+      ORDENAR POR PRECIO
+      <a href='?page=1&limit={{paginationInfo.limit}}&sort=asc&price={{price}}&status={{status}}'>⬆️</a>
+      <a href='?page=1&limit={{paginationInfo.limit}}&sort=desc&price={{price}}&status={{status}}'>⬇️</a>
+    </div>
+  </div>
+  <div class='row product justify-content-evenly'>
+    {{#each productsVisualice}}
+      <div class='containerCard containerProd' style='width: 14rem; margin-top: 5px;' id='{{this._id}}'>
+        <div style='margin-top: 10px; width:200px; height:200px;' class="centered-div">
+          <a onclick="location.href='/products/{{this._id}}'"><img src={{this.thumbnail}} alt='foto de Product {{this.id}}'  width="155" height="198" /></a>
+        </div>
+        <div class='card-body'>
+          <h3 id='titleProduct' class='card-title'>{{this.title}}</h3>
+          <p id='descriptionProduct' class='card-text'>{{this.description}}</p>
+          <p id='priceProduct' class='card-text'>$ {{this.price}}</p>
+          <button onclick="putIntoCart('{{this._id}}')" class="btn btn-info"><p>Add to 🛒</p></button>
+          <br />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  {{#if isPremium}}
+    <div class='admin-button'>
+      <button class='btn btn-warning' onclick="location.href='http://localhost:8080/realtimeproducts'">
+        <span class='icon'><i class='material-icons'>add</i></span>
+        <span>Crear producto</span>
+      </button>
+    </div>
+  {{/if}}
+  {{#if isAdmin}}
+    <div class='admin-button'>
+      <button class='btn btn-warning' onclick="location.href='http://localhost:8080/realtimeproducts'">
+        <span class='icon'><i class='material-icons'>add</i></span>
+        <span>Crear producto</span>
+      </button>
+    </div>
+  {{/if}}
+</section>
+<section>
+  <div style='display: flex; justify-content: center; margin-top: 30px'>
+    <div class='pagination'>
+      {{#if paginationInfo.hasPrevPage}}
+        <a href='?page={{paginationInfo.prevPage}}&limit={{paginationInfo.limit}}&sort={{sort}}&price={{price}}&status={{status}}'>⬅️ Anterior</a>
+      {{/if}}
+      <span style='margin-left: 20px; margin-right: 20px'>Página {{paginationInfo.page}} de {{paginationInfo.totalPages}}</span>
+      {{#if paginationInfo.hasNextPage}}
+        <a href='?page={{paginationInfo.nextPage}}&limit={{paginationInfo.limit}}&sort={{sort}}&price={{price}}&status={{status}}'>Siguiente ➡️</a>
+      {{/if}}
+    </div>
+  </div>
+</section>
+<br>
+
+  <div class='centered-div'>
+      <button onclick="location.href='/chat'">
+        <i class='material-icons'>chat</i></button>
+    </div>
+{{!-- <div class='chatButton'>
+  <button onclick="location.href='/chat'">
+    <i class='material-icons'>chat</i></button>
+</div> --}}
+
+<script src='/js/index.js'></script>
+<script src='/js/home.js'></script>
+<script src='/js/profile.js'></script>
+<script src='/js/cart.js'></script>

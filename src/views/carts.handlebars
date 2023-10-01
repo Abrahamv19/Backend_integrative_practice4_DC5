@@ -1,0 +1,66 @@
+
+<nav class='navbar'>
+  {{#if session}}
+    <div>
+      <a onclick="location.href='/products'"><img src='https://res.cloudinary.com/abrahama19/image/upload/v1691861389/logoPS5_ryhtjh.jpg' alt='logo' width='200px' style='margin-left: 1.4rem;' /></a>
+    </div>
+    <div>
+      <h2 class='navbar__title'>CHECKOUT</h2>
+    </div>
+    <div class='navbar__content'>
+      <a href='/api/sessions/current' class='navbar__link cartInfo' id='{{session.cartID}}'>
+        <button class='navbar__button averageButton button is-primary mt-3'><span class='icon'><i class='material-icons'>account_circle</i></span><span>{{session.firstName}}</span></button></a>
+      <button class='navbar__button averageButton button is-primary mt-3' onclick="location.href='/chat'">
+        <i class='material-icons'>chat</i>
+        Chat
+      </button>
+      <button id='logout-btn' class='navbar__button averageButton button is-primary mt-3'><span class='icon'><i class='material-icons'>exit_to_app</i></span><span>Salir</span></button>
+    </div>
+  {{else}}
+    <p class='navbar__guest-message'>Bienvenido a la tienda</p>
+    <a href='/?login=true' class='navbar__link button is-light'>INICIAR SESIÓN</a>
+    <a href='/?register=true' class='navbar__link button is-primary'>REGISTRO</a>
+  {{/if}}
+</nav>
+{{#if cart.length}}
+  <table class='table__cart'>
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each cart}}
+        <tr>
+          <td>{{this.title}}</td>
+          <td>{{this.price}}</td>
+          <td>{{this.quantity}}</td>
+          <td class='infoProduct' id='{{this._id}}'></td>
+          <td><button onclick="removeProductFromCart('{{userCartId}}', '{{this.product._id}}')">Eliminar</button></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class='cartButtons'>
+    <button class='averageButton button is-primary mt-3' onclick='clearCart()'><i class='material-icons'>shopping_cart</i>Vaciar carrito</button>
+    <a href='/carts/{{userCartId}}/purchase' class='averageButton button is-primary mt-3'>
+      <span class='icon'>
+        <i class='material-icons'>done</i>
+      </span><span>Finalizar compra</span></a>
+    <button class='averageButton button is-primary mt-3' onclick="location.href='/products'"><span class='icon'>
+        <i class='material-icons'>arrow_back</i></span><span>Seguir comprando</span>
+    </button>
+  </div>
+{{else}}
+  <p>Carrito Vacio</p>
+  <button class='averageButton button is-primary mt-3' onclick="location.href='/products'"><span class='icon'>
+      <i class='material-icons'>arrow_back</i></span><span>Seguir comprando</span>
+  </button>
+{{/if}}
+<a class='infoCart' id='{{userCartId}}'></a>
+
+<script src='/js/cart.js'></script>
+<script src='/js/profile.js'></script>

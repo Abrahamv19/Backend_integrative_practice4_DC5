@@ -1,0 +1,258 @@
+openapi: 3.0.0
+info:
+  title: PS5 STORE CARTS
+  description: PS5 STORE DOCS CARTS MODULE 
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /api/carts:
+    post:
+      summary: Crear un carrito
+      tags:
+        - Carts
+      description: Crea un nuevo carrito en la tienda.
+      responses:
+        '200':
+          description: Carrito creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+            examples:
+              success:
+                value:
+                  status: 'success'
+                  payload:
+                    _id: '644081a93f0625dc193bc594'
+                    products:
+                      - product: '12345'
+                        quantity: 2
+  /api/carts/{cid}:
+    get:
+      summary: Obtener un carrito por ID
+      tags:
+        - Carts
+      description: Obtiene un carrito por su ID.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Carrito obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+        '404':
+          description: Carrito no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Actualizar un carrito por ID
+      tags:
+        - Carts
+      description: Actualiza un carrito existente por su ID.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartUpdate'
+      responses:
+        '200':
+          description: Carrito actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+  /api/carts/{cid}/product/{pid}:
+    post:
+      summary: Agregar un producto a un carrito
+      tags:
+        - Carts
+      description: Agrega un producto a un carrito existente.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: pid
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto agregado al carrito exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+        '403':
+          description: Permiso denegado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Eliminar un producto de un carrito
+      tags:
+        - Carts
+      description: Elimina un producto de un carrito existente.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: pid
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto eliminado del carrito exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+        '403':
+          description: Permiso denegado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/carts/{cid}/purchase:
+    get:
+      summary: Realizar la compra de un carrito
+      tags:
+        - Carts
+      description: Realiza la compra de los productos en un carrito.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Compra realizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseResponse'
+        '403':
+          description: Permiso denegado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Agregar un ticket de compra a un carrito
+      tags:
+        - Carts
+      description: Obtiene un ticket de compra por su ID.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TicketPurchase'
+      responses:
+        '200':
+          description: Ticket de compra agregado al carrito exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseResponse'
+  /api/carts/{cid}/purchase/{tid}:
+    get:
+      summary: Obtener un ticket de compra
+      tags:
+        - Carts
+      description: Agrega un ticket de compra a un carrito existente.
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: tid
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ticket de compra obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseResponse'
+        '403':
+          description: Permiso denegado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    CartResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        payload:
+          $ref: '#/components/schemas/Cart'
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: string
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: string
+                description: ID del producto
+              quantity:
+                type: integer
+                description: Cantidad del producto en el carrito
+    CartUpdate:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: string
+                description: ID del producto
+              quantity:
+                type: integer
+                description: Cantidad del producto en el carrito
+    PurchaseResponse:
+      type: object

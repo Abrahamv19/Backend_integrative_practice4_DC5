@@ -1,0 +1,123 @@
+[
+  {
+    "id": 0,
+    "title": "Fifa 23",
+    "description": "ps5 GAME",
+    "price": 90,
+    "thumbnail": "image url",
+    "code": "ps5100",
+    "stock": 10,
+    "category": "Deportes",
+    "status": true
+  },
+  {
+    "id": 1,
+    "title": "God Of War",
+    "description": "ps5 GAME",
+    "price": 80,
+    "thumbnail": "image url",
+    "code": "ps5101",
+    "stock": 12,
+    "category": "Accion",
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Uncharted",
+    "description": "ps5 GAME",
+    "price": 70,
+    "thumbnail": "image url",
+    "code": "ps5102",
+    "stock": 5,
+    "category": "Aventura",
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "MADEN NFL 23",
+    "description": "ps5 GAME",
+    "price": 99,
+    "thumbnail": "image URL",
+    "code": "PS5103",
+    "stock": 12,
+    "category": "Deportes",
+    "status": true
+  },
+  {
+    "id": 4,
+    "title": "Call Of Duty MW2",
+    "description": "ps5 GAME",
+    "price": 99,
+    "thumbnail": "image url",
+    "code": "ps5104",
+    "stock": 14,
+    "category": "Accion",
+    "status": true
+  },
+  {
+    "id": 5,
+    "title": "Assasin Creed",
+    "description": "ps5 GAME",
+    "price": 99,
+    "thumbnail": "image url",
+    "code": "ps5105",
+    "stock": 12,
+    "category": "Aventura",
+    "status": true
+  },
+  {
+    "id": 6,
+    "title": "Ratched And Cranck",
+    "description": "ps5 GAME",
+    "price": 55,
+    "thumbnail": "image url",
+    "code": "ps5106",
+    "stock": 23,
+    "category": "Aventura",
+    "status": true
+  },
+  {
+    "id": 7,
+    "title": "Tropico 6",
+    "description": "ps5 GAME",
+    "price": 95,
+    "thumbnail": "image url",
+    "code": "ps5107",
+    "stock": 4,
+    "category": "Estrategia",
+    "status": true
+  },
+  {
+    "id": 8,
+    "title": "MLB 23",
+    "description": "ps5 GAME",
+    "price": 79,
+    "thumbnail": "image url",
+    "code": "ps5108",
+    "stock": 8,
+    "category": "Deportes",
+    "status": true
+  },
+  {
+    "id": 9,
+    "title": "Ghost Recon Breakpoint",
+    "description": "ps5 GAME",
+    "price": 59,
+    "thumbnail": "image url",
+    "code": "ps5109",
+    "stock": 2,
+    "category": "Accion",
+    "status": true
+  },
+  {
+    "id": 10,
+    "title": "Ghost Of Tsushima",
+    "description": "ps5 GAME",
+    "price": 88,
+    "thumbnail": "image url",
+    "code": "ps5110",
+    "stock": 25,
+    "category": "Aventura",
+    "status": true
+  }
+]
