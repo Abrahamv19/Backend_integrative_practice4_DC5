@@ -27,7 +27,7 @@ const app = express();
 const port = config.port;
 
 /*-------CONFIG SWAGGER-------*/
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/apidocs', swaggerUi.serve, swaggerUi.setup(specs));
 
 /*-------CONFIG CORS-------*/
 const corsOptions = {
@@ -99,6 +99,8 @@ app.use(passport.session());
 app.use('/', indexRoutes);
 
 export default app;
+
+
 
 
 

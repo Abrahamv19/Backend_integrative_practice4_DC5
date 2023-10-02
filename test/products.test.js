@@ -16,7 +16,7 @@ describe('Products API', () => {
   it('should create a product with a valid authentication token', async () => {
     console.log('Inicio de la prueba');
     const loginResponse = await requester.post('/api/sessions/login', {
-      email: 'hugoabrahamv19@gmail.com',
+      email: 'ha-vasquez@hotmail.com',
       password: '123',
     });
     if (loginResponse.status !== 200) {

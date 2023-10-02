@@ -1,8 +1,8 @@
 import supertest from 'supertest';
 import chai from 'chai';
-import app from '../src/server.js';
-import ProductModel from '../src/DAO/models/product.model.js';
-import CartModel from '../src/DAO/models/cart.model.js';
+import app from '../src/app.js';
+import ProductModel from '../src/DAO/models/products.model.js';
+import CartModel from '../src/DAO/models/carts.model.js';
 
 const expect = chai.expect;
 
@@ -15,11 +15,11 @@ describe('Carrito de compras', () => {
   async function createProduct() {
     try {
       const productoDePrueba = new ProductModel({
-        title: 'Producto mock',
-        description: 'Descripción mock',
+        title: 'Producto tester',
+        description: 'Descripción tester',
         price: 10,
-        thumbnail: 'imagen_mock.jpg',
-        code: 'ps010',
+        thumbnail: 'tester.jpg',
+        code: 'ps0155',
         stock: 19,
         category: 'Accion',
         status: true,
@@ -34,10 +34,10 @@ describe('Carrito de compras', () => {
 
   async function loginUser(done) {
     const usuarioDePrueba = {
-      firstName: 'Usuario_mock',
-      lastName: 'last_name_mock',
-      email: 'mock@g.com',
-      password: 'pass_mock',
+      firstName: 'tester',
+      lastName: 'tester',
+      email: 'tester@g.com',
+      password: '123',
       role: 'premium',
     };
     try {

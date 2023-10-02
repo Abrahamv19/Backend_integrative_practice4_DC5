@@ -1,4 +1,4 @@
-<nav>
+<nav style="background-color: aqua;">
   <div class='desktopNavbar'>
 
     <div class='desktopNavRight'>
@@ -15,9 +15,7 @@
         <a href='/?register=true' class='desktopNavLink'>Registro</a>
       </div>
       {{/if}}
-      <div class='search-icon' id='search-icon'>
-        <img class='desktopNavIcon material-icons' src='/images/lupa.png' alt='Lupa' id='search-icon-img' />
-      </div>
+    
       <div class='search-box' id='search-box'>
         <form id='search-form'>
           <input type='text' id='search-input' name='query' placeholder='Buscar...' />
@@ -28,9 +26,7 @@
         <a onclick="location.href='/carts/{{session.cartID}}'"><img class='desktopNavIcon' src='/images/carrito.png'
             alt='carrito' /></a>
       </div>
-      <div>
-        <img class='desktopNavIcon' src='/images/corazon.png' alt='icnsettingsicnxs8081' />
-      </div>
+     
     </div>
     {{#if isAdmin}}
     <div class='admin-button'>
@@ -48,15 +44,23 @@
   </div>
 
 </nav>
-      <div class='dashboard-container'>
-         <h1 class='home-title'>WELCOME TO PS5 STORE</h1>
+    <div class="full-screen">
+       <br>
+      <div class='dashboard-container' style="background-color: rgb(0, 0, 0); font-size: 40px;">
+       
+        <h1 class='home-title' style="color: rgb(255, 255, 255);">WELCOME TO PS5 STORE</h1>
       </div>
       <br>
+      <br>
+      <br>
+      <br>
       <div class='dashboard-container'>
-
-        
-       <img src="https://res.cloudinary.com/abrahama19/image/upload/v1688144787/playstation-store-1000x600_chbab7.jpg" width="500" height="300"/>
-  
+    
+    
+        <img src="https://res.cloudinary.com/abrahama19/image/upload/v1696269469/concola_ps5_home_page_ntevom.jpg"
+          width="750" height="450" />
+    
+      </div>
     </div>
 
    
